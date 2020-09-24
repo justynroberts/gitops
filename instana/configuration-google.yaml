@@ -1,8 +1,5 @@
 com.instana.plugin.ping:
   endpoints:
-    LABEL_1:
-      type: 'icmp'
-      target: '172.16.0.42'
-    LABEL_2:
+   'www.google.com':
       type: 'http'
-      target: 'http://172.16.0.42:80/health'      
+      target: 'www.google.com'      
