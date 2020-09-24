@@ -1,0 +1,1145 @@
+Configuration
+Agent Version
+Latest
+Boot Version
+1.2.11
+Origin
+package dynamic
+Update Mode
+Auto
+Log Level
+Info
+Mode
+Full APM
+Java Runtime
+Azul Systems, Inc. (OpenJDK 64-Bit Server VM)
+Java Version
+1.8.0_232 25.232-b18
+User
+root
+Started At
+2020-09-24 16:52:18 (2h 29m)
+Management
+Change Agent Mode
+Change Log Level
+Update Agent
+Reset Sensors
+Reset Agent
+Reboot Agent
+Info
+Sensors Info
+Agent Configuration
+Configuration Management
+Update
+Remote URI
+Commit Hash
+Git-based configuration management could not be started! Please check the agent logs.
+
+Monitoring Issues
+On
+Code
+Description
+More info
+No issues found.
+CPU Load
+Load
+1.00
+Memory
+Used
+Native Used
+94 MiB
+270 MiB
+Garbage Collection
+Copy Time
+MarkSweepCompact Time
+Copy Invocation
+MarkSweepCompact Invocation
+160ms
+10.00
+Network
+Received
+Sent
+6 kiB/s
+Discovery
+Discovery time
+Discovery Count
+12s
+120
+Sensors
+Sense time
+Sensor Count
+160ms
+4
+Sensor List (as of 2020-09-24 19:12:39)
+Name
+Usage Count
+com.instana.plugin.zipkin.trace	1
+com.instana.plugin.netcoretrace	1
+com.instana.plugin.jaeger.trace	1
+com.instana.plugin.host	1
+com.instana.plugin.generic.trace	1
+com.instana.plugin.gce	1
+com.instana.plugin.clr	1
+com.instana.agent.main.impl.backend.BackendConnectorImpl	1
+com.instana.agent	1
+Sensor Scheduler Workload
+The percentage of available time consumed by all operations run by the sensors scheduler during the given time period.
+
+Time Consumed
+50%
+Slow Sensors
+The sensor count taking longer for an operation than expected. See the sensor timings list for detailed information.
+
+Slow sensors
+6
+Sensor timings (30s window) (as of 2020-09-24 19:21:07)
+Operation
+Count
+Slow
+Min
+Avg
+Max
+c.i.a.host.sensor.Host#activate@163	1	0	4ms	4ms	4ms
+c.i.a.host.sensor.Host#activate@157	1	0	3ms	3ms	3ms
+c.i.a.host.sensor.Host#activate@142	31	0	797µs	1ms	1ms
+c.i.a.main.AgentSensor#activate@356	1	0	477µs	477µs	477µs
+c.i.a.host.sensor.impl.network.LinuxNetworkHelper#<init>@52	1	0	457µs	457µs	457µs
+c.i.a.main.impl.http.AgentHttpServiceImpl#activate@98	3	0	424µs	452µs	466µs
+c.i.a.host.sensor.Host#activate@154	6	0	123µs	165µs	185µs
+c.i.a.main.impl.container.IptablesUtil#activate@92	7	0	61µs	73µs	84µs
+Log Counts
+Name
+Count
+No data.
+OSGi Bundle List (as of 2020-09-24 19:12:39)
+Name
+Version
+State
+Java Concurrency Tools Core Library	2.1.1	Active
+Instana - Python - Discovery	1.7.15	Active
+Instana - Ruby - Discovery	1.4.2	Active
+Instana - Go - Discovery	1.3.0	Active
+Instana - Java - Discovery	1.2.96	Active
+Instana - Agent - Unix Socket Util	1.2.3.0	Active
+Instana - Hazelcast - Discovery	1.2.2	Active
+Instana - Microsoft Azure - Discovery	1.2.18	Active
+Instana - Node.js - Discovery	1.2.15	Active
+Instana - Kubernetes - Discovery	1.2.119	Active
+Prev
+1 / 12
+Next
+Tracer StringBuilder Pools
+The Java and PHP Tracer use pooled StringBuilder instances to process incoming spans. If the created and released metrics are not zero the pools are full. StringBuilder instances are created (and released) on demand then. Also StringBuilder instances which grew over 8 MB are not pooled, but immediately released. Both scenarios might lead to increased heap usage and GC pressure.
+
+Created (Java)
+Released (Java)
+Created (PHP)
+Released (PHP)
+1
+Max Used Capacity (Java)
+Max Capacity (Java)
+Total Capacity (Java)
+Max Used Capacity (PHP)
+Max Capacity (PHP)
+Total Capacity (PHP)
+1 B
+Spans
+Opened
+Closed
+Filtered
+Dropped
+1
+Span Metrics
+PID
+Spans Opened
+Spans Closed
+Spans Filtered
+Spans Dropped
+No data.
+Log Output
+Copy to clipboardAutomatically scroll to bottom on log change:
+2020-09-24T15:52:25.108+0000 | INFO  | tures-3-thread-1 | GitOpsDiscovery                  | 31 - com.instana.agent-gitops-discovery - 1.1.1 | Git config directory found in /opt/instana/agent/etc
+2020-09-24T15:52:25.120+0000 | INFO  | tures-3-thread-1 | GitOpsDiscovery                  | 31 - com.instana.agent-gitops-discovery - 1.1.1 | Halt startup process and load instana-agent-gitops feature
+2020-09-24T15:52:27.983+0000 | ERROR | tures-3-thread-1 | GitProcess                       | 52 - com.instana.agent-gitops - 1.1.1 | Could not update Git configuration repository due to 'Ref remote/main cannot be resolved'; Git-based agent configuration management is disabled.
+2020-09-24T15:52:27.984+0000 | ERROR | tures-3-thread-1 | GitOps                           | 52 - com.instana.agent-gitops - 1.1.1 | Error updating agent configuration, resume normal startup
+java.lang.RuntimeException: org.eclipse.jgit.api.errors.RefNotFoundException: Ref remote/main cannot be resolved
+	at com.instana.agent.gitops.git.GitProcess.withGit(GitProcess.java:48) ~[?:?]
+	at com.instana.agent.gitops.git.AgentGitOpsUpdate.update(AgentGitOpsUpdate.java:44) ~[?:?]
+	at com.instana.agent.gitops.GitOps.activate(GitOps.java:27) ~[?:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_232]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_232]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_232]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_232]
+	at org.apache.felix.scr.impl.inject.methods.BaseMethod.invokeMethod(BaseMethod.java:242) ~[?:?]
+	at org.apache.felix.scr.impl.inject.methods.BaseMethod.access$500(BaseMethod.java:41) ~[?:?]
+	at org.apache.felix.scr.impl.inject.methods.BaseMethod$Resolved.invoke(BaseMethod.java:678) ~[?:?]
+	at org.apache.felix.scr.impl.inject.methods.BaseMethod.invoke(BaseMethod.java:524) ~[?:?]
+	at org.apache.felix.scr.impl.inject.methods.ActivateMethod.invoke(ActivateMethod.java:318) ~[?:?]
+	at org.apache.felix.scr.impl.inject.methods.ActivateMethod.invoke(ActivateMethod.java:308) ~[?:?]
+	at org.apache.felix.scr.impl.manager.SingleComponentManager.createImplementationObject(SingleComponentManager.java:342) ~[?:?]
+	at org.apache.felix.scr.impl.manager.SingleComponentManager.createComponent(SingleComponentManager.java:115) ~[?:?]
+	at org.apache.felix.scr.impl.manager.SingleComponentManager.getService(SingleComponentManager.java:984) ~[?:?]
+	at org.apache.felix.scr.impl.manager.SingleComponentManager.getServiceInternal(SingleComponentManager.java:957) ~[?:?]
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.activateInternal(AbstractComponentManager.java:766) ~[?:?]
+	at org.apache.felix.scr.impl.manager.DependencyManager$SingleStaticCustomizer.addedService(DependencyManager.java:1091) ~[?:?]
+	at org.apache.felix.scr.impl.manager.DependencyManager$SingleStaticCustomizer.addedService(DependencyManager.java:1043) ~[?:?]
+	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.customizerAdded(ServiceTracker.java:1216) ~[?:?]
+	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.customizerAdded(ServiceTracker.java:1137) ~[?:?]
+	at org.apache.felix.scr.impl.manager.ServiceTracker$AbstractTracked.trackAdding(ServiceTracker.java:944) ~[?:?]
+	at org.apache.felix.scr.impl.manager.ServiceTracker$AbstractTracked.track(ServiceTracker.java:880) ~[?:?]
+	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.serviceChanged(ServiceTracker.java:1168) ~[?:?]
+	at org.apache.felix.scr.impl.BundleComponentActivator$ListenerInfo.serviceChanged(BundleComponentActivator.java:125) ~[?:?]
+	at org.apache.felix.framework.EventDispatcher.invokeServiceListenerCallback(EventDispatcher.java:990) ~[?:?]
+	at org.apache.felix.framework.EventDispatcher.fireEventImmediately(EventDispatcher.java:838) ~[?:?]
+	at org.apache.felix.framework.EventDispatcher.fireServiceEvent(EventDispatcher.java:545) ~[?:?]
+	at org.apache.felix.framework.Felix.fireServiceEvent(Felix.java:4595) ~[?:?]
+	at org.apache.felix.framework.Felix.registerService(Felix.java:3587) ~[?:?]
+	at org.apache.felix.framework.BundleContextImpl.registerService(BundleContextImpl.java:348) ~[?:?]
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager$3.register(AbstractComponentManager.java:907) ~[?:?]
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager$3.register(AbstractComponentManager.java:893) ~[?:?]
+	at org.apache.felix.scr.impl.manager.RegistrationManager.changeRegistration(RegistrationManager.java:128) ~[?:?]
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.registerService(AbstractComponentManager.java:960) ~[?:?]
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.activateInternal(AbstractComponentManager.java:733) ~[?:?]
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.enableInternal(AbstractComponentManager.java:667) ~[?:?]
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.enable(AbstractComponentManager.java:433) ~[?:?]
+	at org.apache.felix.scr.impl.manager.ConfigurableComponentHolder.enableComponents(ConfigurableComponentHolder.java:666) ~[?:?]
+	at org.apache.felix.scr.impl.BundleComponentActivator.initialEnable(BundleComponentActivator.java:353) ~[?:?]
+	at org.apache.felix.scr.impl.Activator.loadComponents(Activator.java:553) ~[?:?]
+	at org.apache.felix.scr.impl.Activator.access$200(Activator.java:69) ~[?:?]
+	at org.apache.felix.scr.impl.Activator$ScrExtension.start(Activator.java:424) ~[?:?]
+	at org.apache.felix.scr.impl.AbstractExtender.createExtension(AbstractExtender.java:196) ~[?:?]
+	at org.apache.felix.scr.impl.AbstractExtender.modifiedBundle(AbstractExtender.java:169) ~[?:?]
+	at org.apache.felix.scr.impl.AbstractExtender.modifiedBundle(AbstractExtender.java:49) ~[?:?]
+	at org.osgi.util.tracker.BundleTracker$Tracked.customizerModified(BundleTracker.java:482) ~[osgi.core-6.0.0.jar:?]
+	at org.osgi.util.tracker.BundleTracker$Tracked.customizerModified(BundleTracker.java:415) ~[osgi.core-6.0.0.jar:?]
+	at org.osgi.util.tracker.AbstractTracked.track(AbstractTracked.java:232) ~[osgi.core-6.0.0.jar:?]
+	at org.osgi.util.tracker.BundleTracker$Tracked.bundleChanged(BundleTracker.java:444) ~[osgi.core-6.0.0.jar:?]
+	at org.apache.felix.framework.EventDispatcher.invokeBundleListenerCallback(EventDispatcher.java:915) ~[?:?]
+	at org.apache.felix.framework.EventDispatcher.fireEventImmediately(EventDispatcher.java:834) ~[?:?]
+	at org.apache.felix.framework.EventDispatcher.fireBundleEvent(EventDispatcher.java:516) ~[?:?]
+	at org.apache.felix.framework.Felix.fireBundleEvent(Felix.java:4579) ~[?:?]
+	at org.apache.felix.framework.Felix.startBundle(Felix.java:2174) ~[?:?]
+	at org.apache.felix.framework.BundleImpl.start(BundleImpl.java:998) ~[?:?]
+	at org.apache.felix.framework.BundleImpl.start(BundleImpl.java:984) ~[?:?]
+	at org.apache.karaf.features.internal.service.BundleInstallSupportImpl.startBundle(BundleInstallSupportImpl.java:165) ~[?:?]
+	at org.apache.karaf.features.internal.service.FeaturesServiceImpl.startBundle(FeaturesServiceImpl.java:1153) ~[?:?]
+	at org.apache.karaf.features.internal.service.Deployer.deploy(Deployer.java:1036) ~[?:?]
+	at org.apache.karaf.features.internal.service.FeaturesServiceImpl.doProvision(FeaturesServiceImpl.java:1062) ~[?:?]
+	at org.apache.karaf.features.internal.service.FeaturesServiceImpl.lambda$doProvisionInThread$13(FeaturesServiceImpl.java:998) ~[?:?]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [?:1.8.0_232]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_232]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_232]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_232]
+Caused by: org.eclipse.jgit.api.errors.RefNotFoundException: Ref remote/main cannot be resolved
+	at org.eclipse.jgit.api.CheckoutCommand.call(CheckoutCommand.java:223) ~[?:?]
+	at com.instana.agent.gitops.git.GitProcess.checkout(GitProcess.java:69) ~[?:?]
+	at com.instana.agent.gitops.git.AgentGitOpsUpdate.performUpdateOn(AgentGitOpsUpdate.java:60) ~[?:?]
+	at com.instana.agent.gitops.git.GitProcess.withGit(GitProcess.java:40) ~[?:?]
+	... 66 more
+2020-09-24T15:52:28.046+0000 | INFO  | FelixStartLevel  | AgentBootstrap                   | 50 - com.instana.agent-bootstrap - 1.2.11 | Bootstrapping agent
+2020-09-24T15:52:28.047+0000 | INFO  | FelixStartLevel  | AgentBootstrap                   | 50 - com.instana.agent-bootstrap - 1.2.11 | Running on justyn-languages, Linux 4.9.0-12-amd64 amd64
+2020-09-24T15:52:28.048+0000 | INFO  | FelixStartLevel  | AgentBootstrap                   | 50 - com.instana.agent-bootstrap - 1.2.11 | Using PATH set to /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+2020-09-24T15:52:28.049+0000 | INFO  | FelixStartLevel  | AgentBootstrap                   | 50 - com.instana.agent-bootstrap - 1.2.11 | Using Java 1.8.0_232 OpenJDK 64-Bit Server VM 25.232-b18 (Azul Systems, Inc.) from /opt/instana/agent/jvm
+2020-09-24T15:52:28.049+0000 | INFO  | FelixStartLevel  | AgentBootstrap                   | 50 - com.instana.agent-bootstrap - 1.2.11 | Using JAVA_OPTS -Xms64m -Xmx160m -XX:+UnlockDiagnosticVMOptions -XX:+UseSerialGC -Xmn32m -Xss384k -XX:InitialCodeCacheSize=8m -XX:CodeCacheExpansionSize=64k -XX:ReservedCodeCacheSize=16m -XX:-TieredCompilation -XX:CICompilerCount=1 -XX:CompressedClassSpaceSize=24m -XX:MinMetaspaceExpansion=1M -XX:MaxMetaspaceExpansion=8M -XX:MaxMetaspaceSize=128m -XX:MaxDirectMemorySize=256m -XX:+PerfDisableSharedMem -Xverify:none -Djava.endorsed.dirs=/opt/instana/agent/jvm/jre/lib/endorsed:/opt/instana/agent/jvm/lib/endorsed:/opt/instana/agent/lib/endorsed -Djava.ext.dirs=/opt/instana/agent/jvm/jre/lib/ext:/opt/instana/agent/jvm/lib/ext:/opt/instana/agent/lib/ext -Dkaraf.instances=/opt/instana/agent/instances -Dkaraf.home=/opt/instana/agent -Dkaraf.base=/opt/instana/agent -Dkaraf.data=/opt/instana/agent/data -Dkaraf.etc=/opt/instana/agent/etc -Dkaraf.log=/opt/instana/agent/data/log -Dkaraf.restart.jvm.supported=true -Djava.io.tmpdir=/opt/instana/agent/data/tmp -Djava.util.logging.config.file=/opt/instana/agent/etc/java.util.logging.properties -Dkaraf.startLocalConsole=false -Dkaraf.startRemoteShell=false
+2020-09-24T15:52:28.051+0000 | INFO  | FelixStartLevel  | AgentBootstrap                   | 50 - com.instana.agent-bootstrap - 1.2.11 | Agent installed to /opt/instana/agent and started by root
+2020-09-24T15:52:28.051+0000 | INFO  | FelixStartLevel  | AgentBootstrap                   | 50 - com.instana.agent-bootstrap - 1.2.11 | Dynamic agent running latest version and installed from package dynamic
+2020-09-24T15:52:28.065+0000 | INFO  | FelixStartLevel  | UpdateManagerImpl                | 50 - com.instana.agent-bootstrap - 1.2.11 | Automatic updates scheduled every DAY at 04:30
+2020-09-24T15:52:28.176+0000 | INFO  | agent-bootstrap  | AgentBootstrap                   | 50 - com.instana.agent-bootstrap - 1.2.11 | Installing agent
+2020-09-24T15:52:35.302+0000 | INFO  | tures-3-thread-1 | ContainerdUtilImpl               | 56 - com.instana.agent - 1.1.571 | ContainerD detected
+2020-09-24T15:52:35.315+0000 | INFO  | tures-3-thread-1 | DockerUtilImpl                   | 56 - com.instana.agent - 1.1.571 | Docker detected with socket at /var/run/docker.sock
+2020-09-24T15:52:35.447+0000 | INFO  | tures-3-thread-1 | Agent                            | 56 - com.instana.agent - 1.1.571 | Agent Mode: apm
+2020-09-24T15:52:35.468+0000 | INFO  | tures-3-thread-1 | SchedulerImpl                    | 56 - com.instana.agent - 1.1.571 | Started sensor scheduler with 4 threads on 2 CPUs.
+2020-09-24T15:52:35.829+0000 | INFO  | ana-http-service | AgentHttpServiceImpl             | 56 - com.instana.agent - 1.1.571 | Listening on 127.0.0.1:42699
+2020-09-24T15:52:35.830+0000 | INFO  | tures-3-thread-1 | AgentHttpServiceImpl             | 56 - com.instana.agent - 1.1.571 | Started agent http service with 4 threads.
+2020-09-24T15:52:35.834+0000 | INFO  | heduler-thread-2 | AgentHttpServiceImpl             | 56 - com.instana.agent - 1.1.571 | Listening on 172.17.0.1:42699
+2020-09-24T15:52:36.150+0000 | INFO  | tures-3-thread-1 | AgentSensor                      | 56 - com.instana.agent - 1.1.571 | Activated Sensor
+2020-09-24T15:52:36.207+0000 | INFO  | tures-3-thread-1 | Backend                          | 56 - com.instana.agent - 1.1.571 | Not verifying certificate fingerprint of connection
+2020-09-24T15:52:36.549+0000 | INFO  | tures-3-thread-1 | AgentImpl                        | 56 - com.instana.agent - 1.1.571 | Agent configured with repositories https://artifact-public.instana.io/artifactory/features-public@id=features@snapshots@snapshotsUpdate=always,https://artifact-public.instana.io/artifactory/shared@id=shared@snapshots@snapshotsUpdate=always
+2020-09-24T15:52:36.559+0000 | INFO  | tures-3-thread-1 | AgentImpl                        | 56 - com.instana.agent - 1.1.571 | Maven server configured: id: features, username: _, password: IYUKKimCQ-6qVTawqCHPEw
+2020-09-24T15:52:36.560+0000 | INFO  | tures-3-thread-1 | AgentImpl                        | 56 - com.instana.agent - 1.1.571 | Maven server configured: id: shared, username: _, password: IYUKKimCQ-6qVTawqCHPEw
+2020-09-24T15:52:36.561+0000 | INFO  | tures-3-thread-1 | AgentImpl                        | 56 - com.instana.agent - 1.1.571 | Started agent scheduler.
+2020-09-24T15:52:36.579+0000 | INFO  | agent-starter    | AgentBootstrap                   | 50 - com.instana.agent-bootstrap - 1.2.11 | Installing discoveries
+2020-09-24T15:52:36.655+0000 | INFO  | agent-bootstrap  | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-init/1.0.1
+2020-09-24T15:52:36.656+0000 | INFO  | agent-bootstrap  | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-jctools2/2.1.1
+2020-09-24T15:52:36.657+0000 | INFO  | agent-bootstrap  | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-api/1.2.100
+2020-09-24T15:52:36.657+0000 | INFO  | agent-bootstrap  | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-unix-socket-util/1.2.3.0
+2020-09-24T15:52:36.657+0000 | INFO  | agent-bootstrap  | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-agent-optional-api/1.0.0
+2020-09-24T15:52:36.658+0000 | INFO  | agent-bootstrap  | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-agent/1.1.571
+2020-09-24T15:52:36.963+0000 | INFO  | stana.io:443-2-1 | Backend                          | 56 - com.instana.agent - 1.1.571 | Connected using HTTP/2 to ingress-red-saas.instana.io:443 with id GCE-2980928423389122649 and key IYUKKimCQ-6qVTawqCHPEw
+2020-09-24T15:52:39.337+0000 | INFO  | tures-3-thread-1 | PyPackageInstaller               | 142 - com.instana.discovery-python - 1.7.15 | Python AutoTrace: could not find a system pip command to use. Will not attempt to remotely instrument Python processes.  You can either install the Python pip utility to enable this or use an alternative method as documented in the Python installation documentation: https://docs.instana.io/ecosystem/python/#installation
+2020-09-24T15:52:40.004+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-activemq-artemis-discovery/1.0.3
+2020-09-24T15:52:40.004+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-activemq-discovery/1.1.10
+2020-09-24T15:52:40.005+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-azure-discovery/1.2.18
+2020-09-24T15:52:40.005+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-aws-discovery/1.0.88
+2020-09-24T15:52:40.005+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-cassandra-discovery/1.1.34
+2020-09-24T15:52:40.005+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-beeinstana-discovery/1.0.4
+2020-09-24T15:52:40.006+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-biztalk-discovery/1.0.4
+2020-09-24T15:52:40.006+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-ceph-discovery/1.1.1
+2020-09-24T15:52:40.006+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-cpp-discovery/1.1.0
+2020-09-24T15:52:40.006+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-cockroachdb-discovery/1.0.6
+2020-09-24T15:52:40.006+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-consul-discovery/1.0.16
+2020-09-24T15:52:40.007+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-containerd-discovery/1.0.19
+2020-09-24T15:52:40.007+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-clickhouse-discovery/1.0.16
+2020-09-24T15:52:40.007+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-cloudfoundry-discovery/1.0.4
+2020-09-24T15:52:40.007+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-clr-discovery/1.1.33
+2020-09-24T15:52:40.008+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-couchbase-discovery/1.0.3
+2020-09-24T15:52:40.008+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-crystal-discovery/1.1.1
+2020-09-24T15:52:40.008+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-crio-discovery/1.0.6
+2020-09-24T15:52:40.009+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-db2-discovery/1.0.7
+2020-09-24T15:52:40.009+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-docker-discovery/1.1.56
+2020-09-24T15:52:40.009+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-dropwizard-discovery/1.1.25
+2020-09-24T15:52:40.009+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-ebpf-discovery/1.0.16
+2020-09-24T15:52:40.010+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-ec2-discovery/1.1.9
+2020-09-24T15:52:40.010+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-elasticsearch-discovery/1.1.55
+2020-09-24T15:52:40.010+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-etcd-discovery/1.0.27
+2020-09-24T15:52:40.011+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-f5-discovery/1.0.1
+2020-09-24T15:52:40.011+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-finagle-discovery/1.1.0
+2020-09-24T15:52:40.011+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-garden-discovery/1.0.5
+2020-09-24T15:52:40.012+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-gce-discovery/1.1.16
+2020-09-24T15:52:40.012+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-generic-hardware-discovery/1.1.6
+2020-09-24T15:52:40.012+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-glassfish-discovery/1.1.9
+2020-09-24T15:52:40.013+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-golang-discovery/1.3.0
+2020-09-24T15:52:40.013+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-hadoop-yarn-discovery/1.1.3
+2020-09-24T15:52:40.013+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-hadoop-yarn-node-discovery/1.1.0
+2020-09-24T15:52:40.014+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-haproxy-discovery/1.1.28
+2020-09-24T15:52:40.014+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-haskell-discovery/1.0.1
+2020-09-24T15:52:40.014+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-hazelcast-discovery/1.2.2
+2020-09-24T15:52:40.014+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-hbase-discovery/1.1.0
+2020-09-24T15:52:40.015+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-host-discovery/1.1.129
+2020-09-24T15:52:40.015+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-httpd-discovery/1.1.101
+2020-09-24T15:52:40.015+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-ibmmq-discovery/1.0.1
+2020-09-24T15:52:40.016+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-instana-backend-discovery/1.1.1
+2020-09-24T15:52:40.016+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-java-discovery/1.2.96
+2020-09-24T15:52:40.016+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-jboss-as-discovery/1.1.43
+2020-09-24T15:52:40.017+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-jboss-as4-discovery/1.0.6
+2020-09-24T15:52:40.017+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-jboss-datagrid-discovery/1.1.10
+2020-09-24T15:52:40.017+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-jenkins-discovery/1.0.12
+2020-09-24T15:52:40.018+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-jetty-discovery/1.1.12
+2020-09-24T15:52:40.018+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-jira-discovery/1.1.11
+2020-09-24T15:52:40.018+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-kafka-connect-discovery/1.0.0
+2020-09-24T15:52:40.019+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-kafka-discovery/1.1.35
+2020-09-24T15:52:40.019+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-kubernetes-discovery/1.2.119
+2020-09-24T15:52:40.019+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-liferay-discovery/1.0.0
+2020-09-24T15:52:40.020+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-lxc-discovery/1.0.1
+2020-09-24T15:52:40.020+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-mariadb-discovery/1.1.22
+2020-09-24T15:52:40.020+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-memcached-discovery/1.0.17
+2020-09-24T15:52:40.021+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-mongodb-discovery/1.1.44
+2020-09-24T15:52:40.021+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-mysql-discovery/1.1.62
+2020-09-24T15:52:40.021+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-msiis-discovery/1.1.8
+2020-09-24T15:52:40.022+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-mule-discovery/1.0.3
+2020-09-24T15:52:40.022+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-mssql-discovery/1.1.29
+2020-09-24T15:52:40.022+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-neo4j-discovery/1.0.0
+2020-09-24T15:52:40.023+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-netcore-discovery/1.0.23
+2020-09-24T15:52:40.023+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-nginx-discovery/1.1.75
+2020-09-24T15:52:40.023+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-nodejs-discovery/1.2.15
+2020-09-24T15:52:40.024+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-nomad-discovery/1.0.6
+2020-09-24T15:52:40.024+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-opc-discovery/1.1.1
+2020-09-24T15:52:40.024+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-openstack-nova-discovery/1.1.6
+2020-09-24T15:52:40.025+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-openldap-discovery/1.0.9
+2020-09-24T15:52:40.025+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-oracledb-discovery/1.1.18
+2020-09-24T15:52:40.025+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-perfcounters-discovery/1.0.0
+2020-09-24T15:52:40.026+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-packet-discovery/1.1.1
+2020-09-24T15:52:40.026+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-php-cgi-discovery/1.0.0
+2020-09-24T15:52:40.026+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-php-fpm-discovery/1.1.62
+2020-09-24T15:52:40.027+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-ping-discovery/1.0.6
+2020-09-24T15:52:40.027+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-ping-directory-discovery/1.0.3
+2020-09-24T15:52:40.028+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-postgresql-discovery/1.0.39
+2020-09-24T15:52:40.028+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-process-discovery/1.1.42
+2020-09-24T15:52:40.028+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-prometheus-discovery/1.0.13
+2020-09-24T15:52:40.029+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-python-discovery/1.7.15
+2020-09-24T15:52:40.029+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-redis-discovery/1.1.32
+2020-09-24T15:52:40.029+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-redis-enterprise-discovery/1.0.0
+2020-09-24T15:52:40.030+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-rabbitmq-discovery/1.1.41
+2020-09-24T15:52:40.030+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-ruby-discovery/1.4.2
+2020-09-24T15:52:40.030+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-sap-hana-discovery/1.1.3
+2020-09-24T15:52:40.031+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-solr-discovery/1.0.14
+2020-09-24T15:52:40.031+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-statsd-discovery/1.1.7
+2020-09-24T15:52:40.031+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-spark-application-discovery/1.1.5
+2020-09-24T15:52:40.032+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-spark-standalone-discovery/1.1.1
+2020-09-24T15:52:40.032+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-springboot-discovery/1.1.41
+2020-09-24T15:52:40.032+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-sybase-discovery/1.0.0
+2020-09-24T15:52:40.032+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-tanzu-foundation-member-discovery/1.0.0
+2020-09-24T15:52:40.033+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-tomcat-discovery/1.1.29
+2020-09-24T15:52:40.033+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-tibcoems-discovery/1.0.1
+2020-09-24T15:52:40.033+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-varnish-discovery/1.0.22
+2020-09-24T15:52:40.034+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-vault-discovery/1.0.5
+2020-09-24T15:52:40.034+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-vsphere-discovery/1.0.18
+2020-09-24T15:52:40.034+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-websphere-discovery/1.1.13
+2020-09-24T15:52:40.035+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-websphere-liberty-discovery/1.1.0
+2020-09-24T15:52:40.035+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-zookeeper-discovery/1.0.4
+2020-09-24T15:52:40.035+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-weblogic-discovery/1.1.18
+2020-09-24T15:52:40.036+0000 | INFO  | agent-starter    | AgentBootstrap                   | 50 - com.instana.agent-bootstrap - 1.2.11 | Starting agent now
+2020-09-24T15:52:40.036+0000 | INFO  | agent-starter    | AgentImpl                        | 56 - com.instana.agent - 1.1.571 | Starting Instana agent.
+2020-09-24T15:52:40.039+0000 | INFO  | agent-starter    | AgentImpl                        | 56 - com.instana.agent - 1.1.571 | Instana agent started.
+2020-09-24T15:52:40.972+0000 | INFO  | heduler-thread-1 | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-clr-trace-sensor
+2020-09-24T15:52:40.995+0000 | INFO  | 7d-02889dbd8a67) | ClrTrace                         | 165 - com.instana.sensor-clr-trace - 1.1.7 | Activated Sensor
+2020-09-24T15:52:40.996+0000 | INFO  | 7d-02889dbd8a67) | ClrTrace                         | 165 - com.instana.sensor-clr-trace - 1.1.7 | CLR-Tracing has been enabled
+2020-09-24T15:52:43.013+0000 | INFO  | heduler-thread-1 | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-netcore-trace-sensor
+2020-09-24T15:52:43.060+0000 | INFO  | b4-7a046d5fe772) | Daemon                           | 166 - com.instana.sensor-netcore-trace - 1.0.5 | Started .NET Core Acceptor daemon with 2 dispatchers
+2020-09-24T15:52:43.061+0000 | INFO  | b4-7a046d5fe772) | NetcoreTrace                     | 166 - com.instana.sensor-netcore-trace - 1.0.5 | .Net Core Tracing daemon activated
+2020-09-24T15:52:44.812+0000 | INFO  | heduler-thread-1 | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-gce-sensor
+2020-09-24T15:52:45.859+0000 | INFO  | heduler-thread-1 | Ebpf                             | 84 - com.instana.discovery-ebpf - 1.0.16 | Successfully started eBPF sensor.
+2020-09-24T15:52:47.581+0000 | INFO  | heduler-thread-1 | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-gce-services-discovery
+2020-09-24T15:52:49.903+0000 | INFO  | heduler-thread-1 | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-host-sensor
+2020-09-24T15:52:49.926+0000 | INFO  | f7-65a3f0f3b22c) | Host                             | 169 - com.instana.sensor-host - 1.1.129 | Activated Sensor
+2020-09-24T15:53:10.845+0000 | INFO  | heduler-thread-1 | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-ebpf-sensor
+2020-09-24T15:53:25.195+0000 | INFO  | stana.io:443-2-1 | AgentSensor                      | 56 - com.instana.agent - 1.1.571 | Forwarding log to backend for max 10 minutes.
+2020-09-24T16:03:25.229+0000 | INFO  | heduler-thread-4 | AgentSensor                      | 56 - com.instana.agent - 1.1.571 | Forwarding log to backend stopped.
+2020-09-24T15:52:25.108+0000 | INFO  | tures-3-thread-1 | GitOpsDiscovery                  | 31 - com.instana.agent-gitops-discovery - 1.1.1 | Git config directory found in /opt/instana/agent/etc
+2020-09-24T15:52:25.120+0000 | INFO  | tures-3-thread-1 | GitOpsDiscovery                  | 31 - com.instana.agent-gitops-discovery - 1.1.1 | Halt startup process and load instana-agent-gitops feature
+2020-09-24T15:52:27.983+0000 | ERROR | tures-3-thread-1 | GitProcess                       | 52 - com.instana.agent-gitops - 1.1.1 | Could not update Git configuration repository due to 'Ref remote/main cannot be resolved'; Git-based agent configuration management is disabled.
+2020-09-24T15:52:27.984+0000 | ERROR | tures-3-thread-1 | GitOps                           | 52 - com.instana.agent-gitops - 1.1.1 | Error updating agent configuration, resume normal startup
+java.lang.RuntimeException: org.eclipse.jgit.api.errors.RefNotFoundException: Ref remote/main cannot be resolved
+	at com.instana.agent.gitops.git.GitProcess.withGit(GitProcess.java:48) ~[?:?]
+	at com.instana.agent.gitops.git.AgentGitOpsUpdate.update(AgentGitOpsUpdate.java:44) ~[?:?]
+	at com.instana.agent.gitops.GitOps.activate(GitOps.java:27) ~[?:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_232]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_232]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_232]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_232]
+	at org.apache.felix.scr.impl.inject.methods.BaseMethod.invokeMethod(BaseMethod.java:242) ~[?:?]
+	at org.apache.felix.scr.impl.inject.methods.BaseMethod.access$500(BaseMethod.java:41) ~[?:?]
+	at org.apache.felix.scr.impl.inject.methods.BaseMethod$Resolved.invoke(BaseMethod.java:678) ~[?:?]
+	at org.apache.felix.scr.impl.inject.methods.BaseMethod.invoke(BaseMethod.java:524) ~[?:?]
+	at org.apache.felix.scr.impl.inject.methods.ActivateMethod.invoke(ActivateMethod.java:318) ~[?:?]
+	at org.apache.felix.scr.impl.inject.methods.ActivateMethod.invoke(ActivateMethod.java:308) ~[?:?]
+	at org.apache.felix.scr.impl.manager.SingleComponentManager.createImplementationObject(SingleComponentManager.java:342) ~[?:?]
+	at org.apache.felix.scr.impl.manager.SingleComponentManager.createComponent(SingleComponentManager.java:115) ~[?:?]
+	at org.apache.felix.scr.impl.manager.SingleComponentManager.getService(SingleComponentManager.java:984) ~[?:?]
+	at org.apache.felix.scr.impl.manager.SingleComponentManager.getServiceInternal(SingleComponentManager.java:957) ~[?:?]
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.activateInternal(AbstractComponentManager.java:766) ~[?:?]
+	at org.apache.felix.scr.impl.manager.DependencyManager$SingleStaticCustomizer.addedService(DependencyManager.java:1091) ~[?:?]
+	at org.apache.felix.scr.impl.manager.DependencyManager$SingleStaticCustomizer.addedService(DependencyManager.java:1043) ~[?:?]
+	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.customizerAdded(ServiceTracker.java:1216) ~[?:?]
+	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.customizerAdded(ServiceTracker.java:1137) ~[?:?]
+	at org.apache.felix.scr.impl.manager.ServiceTracker$AbstractTracked.trackAdding(ServiceTracker.java:944) ~[?:?]
+	at org.apache.felix.scr.impl.manager.ServiceTracker$AbstractTracked.track(ServiceTracker.java:880) ~[?:?]
+	at org.apache.felix.scr.impl.manager.ServiceTracker$Tracked.serviceChanged(ServiceTracker.java:1168) ~[?:?]
+	at org.apache.felix.scr.impl.BundleComponentActivator$ListenerInfo.serviceChanged(BundleComponentActivator.java:125) ~[?:?]
+	at org.apache.felix.framework.EventDispatcher.invokeServiceListenerCallback(EventDispatcher.java:990) ~[?:?]
+	at org.apache.felix.framework.EventDispatcher.fireEventImmediately(EventDispatcher.java:838) ~[?:?]
+	at org.apache.felix.framework.EventDispatcher.fireServiceEvent(EventDispatcher.java:545) ~[?:?]
+	at org.apache.felix.framework.Felix.fireServiceEvent(Felix.java:4595) ~[?:?]
+	at org.apache.felix.framework.Felix.registerService(Felix.java:3587) ~[?:?]
+	at org.apache.felix.framework.BundleContextImpl.registerService(BundleContextImpl.java:348) ~[?:?]
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager$3.register(AbstractComponentManager.java:907) ~[?:?]
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager$3.register(AbstractComponentManager.java:893) ~[?:?]
+	at org.apache.felix.scr.impl.manager.RegistrationManager.changeRegistration(RegistrationManager.java:128) ~[?:?]
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.registerService(AbstractComponentManager.java:960) ~[?:?]
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.activateInternal(AbstractComponentManager.java:733) ~[?:?]
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.enableInternal(AbstractComponentManager.java:667) ~[?:?]
+	at org.apache.felix.scr.impl.manager.AbstractComponentManager.enable(AbstractComponentManager.java:433) ~[?:?]
+	at org.apache.felix.scr.impl.manager.ConfigurableComponentHolder.enableComponents(ConfigurableComponentHolder.java:666) ~[?:?]
+	at org.apache.felix.scr.impl.BundleComponentActivator.initialEnable(BundleComponentActivator.java:353) ~[?:?]
+	at org.apache.felix.scr.impl.Activator.loadComponents(Activator.java:553) ~[?:?]
+	at org.apache.felix.scr.impl.Activator.access$200(Activator.java:69) ~[?:?]
+	at org.apache.felix.scr.impl.Activator$ScrExtension.start(Activator.java:424) ~[?:?]
+	at org.apache.felix.scr.impl.AbstractExtender.createExtension(AbstractExtender.java:196) ~[?:?]
+	at org.apache.felix.scr.impl.AbstractExtender.modifiedBundle(AbstractExtender.java:169) ~[?:?]
+	at org.apache.felix.scr.impl.AbstractExtender.modifiedBundle(AbstractExtender.java:49) ~[?:?]
+	at org.osgi.util.tracker.BundleTracker$Tracked.customizerModified(BundleTracker.java:482) ~[osgi.core-6.0.0.jar:?]
+	at org.osgi.util.tracker.BundleTracker$Tracked.customizerModified(BundleTracker.java:415) ~[osgi.core-6.0.0.jar:?]
+	at org.osgi.util.tracker.AbstractTracked.track(AbstractTracked.java:232) ~[osgi.core-6.0.0.jar:?]
+	at org.osgi.util.tracker.BundleTracker$Tracked.bundleChanged(BundleTracker.java:444) ~[osgi.core-6.0.0.jar:?]
+	at org.apache.felix.framework.EventDispatcher.invokeBundleListenerCallback(EventDispatcher.java:915) ~[?:?]
+	at org.apache.felix.framework.EventDispatcher.fireEventImmediately(EventDispatcher.java:834) ~[?:?]
+	at org.apache.felix.framework.EventDispatcher.fireBundleEvent(EventDispatcher.java:516) ~[?:?]
+	at org.apache.felix.framework.Felix.fireBundleEvent(Felix.java:4579) ~[?:?]
+	at org.apache.felix.framework.Felix.startBundle(Felix.java:2174) ~[?:?]
+	at org.apache.felix.framework.BundleImpl.start(BundleImpl.java:998) ~[?:?]
+	at org.apache.felix.framework.BundleImpl.start(BundleImpl.java:984) ~[?:?]
+	at org.apache.karaf.features.internal.service.BundleInstallSupportImpl.startBundle(BundleInstallSupportImpl.java:165) ~[?:?]
+	at org.apache.karaf.features.internal.service.FeaturesServiceImpl.startBundle(FeaturesServiceImpl.java:1153) ~[?:?]
+	at org.apache.karaf.features.internal.service.Deployer.deploy(Deployer.java:1036) ~[?:?]
+	at org.apache.karaf.features.internal.service.FeaturesServiceImpl.doProvision(FeaturesServiceImpl.java:1062) ~[?:?]
+	at org.apache.karaf.features.internal.service.FeaturesServiceImpl.lambda$doProvisionInThread$13(FeaturesServiceImpl.java:998) ~[?:?]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266) [?:1.8.0_232]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_232]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_232]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_232]
+Caused by: org.eclipse.jgit.api.errors.RefNotFoundException: Ref remote/main cannot be resolved
+	at org.eclipse.jgit.api.CheckoutCommand.call(CheckoutCommand.java:223) ~[?:?]
+	at com.instana.agent.gitops.git.GitProcess.checkout(GitProcess.java:69) ~[?:?]
+	at com.instana.agent.gitops.git.AgentGitOpsUpdate.performUpdateOn(AgentGitOpsUpdate.java:60) ~[?:?]
+	at com.instana.agent.gitops.git.GitProcess.withGit(GitProcess.java:40) ~[?:?]
+	... 66 more
+2020-09-24T15:52:28.046+0000 | INFO  | FelixStartLevel  | AgentBootstrap                   | 50 - com.instana.agent-bootstrap - 1.2.11 | Bootstrapping agent
+2020-09-24T15:52:28.047+0000 | INFO  | FelixStartLevel  | AgentBootstrap                   | 50 - com.instana.agent-bootstrap - 1.2.11 | Running on justyn-languages, Linux 4.9.0-12-amd64 amd64
+2020-09-24T15:52:28.048+0000 | INFO  | FelixStartLevel  | AgentBootstrap                   | 50 - com.instana.agent-bootstrap - 1.2.11 | Using PATH set to /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+2020-09-24T15:52:28.049+0000 | INFO  | FelixStartLevel  | AgentBootstrap                   | 50 - com.instana.agent-bootstrap - 1.2.11 | Using Java 1.8.0_232 OpenJDK 64-Bit Server VM 25.232-b18 (Azul Systems, Inc.) from /opt/instana/agent/jvm
+2020-09-24T15:52:28.049+0000 | INFO  | FelixStartLevel  | AgentBootstrap                   | 50 - com.instana.agent-bootstrap - 1.2.11 | Using JAVA_OPTS -Xms64m -Xmx160m -XX:+UnlockDiagnosticVMOptions -XX:+UseSerialGC -Xmn32m -Xss384k -XX:InitialCodeCacheSize=8m -XX:CodeCacheExpansionSize=64k -XX:ReservedCodeCacheSize=16m -XX:-TieredCompilation -XX:CICompilerCount=1 -XX:CompressedClassSpaceSize=24m -XX:MinMetaspaceExpansion=1M -XX:MaxMetaspaceExpansion=8M -XX:MaxMetaspaceSize=128m -XX:MaxDirectMemorySize=256m -XX:+PerfDisableSharedMem -Xverify:none -Djava.endorsed.dirs=/opt/instana/agent/jvm/jre/lib/endorsed:/opt/instana/agent/jvm/lib/endorsed:/opt/instana/agent/lib/endorsed -Djava.ext.dirs=/opt/instana/agent/jvm/jre/lib/ext:/opt/instana/agent/jvm/lib/ext:/opt/instana/agent/lib/ext -Dkaraf.instances=/opt/instana/agent/instances -Dkaraf.home=/opt/instana/agent -Dkaraf.base=/opt/instana/agent -Dkaraf.data=/opt/instana/agent/data -Dkaraf.etc=/opt/instana/agent/etc -Dkaraf.log=/opt/instana/agent/data/log -Dkaraf.restart.jvm.supported=true -Djava.io.tmpdir=/opt/instana/agent/data/tmp -Djava.util.logging.config.file=/opt/instana/agent/etc/java.util.logging.properties -Dkaraf.startLocalConsole=false -Dkaraf.startRemoteShell=false
+2020-09-24T15:52:28.051+0000 | INFO  | FelixStartLevel  | AgentBootstrap                   | 50 - com.instana.agent-bootstrap - 1.2.11 | Agent installed to /opt/instana/agent and started by root
+2020-09-24T15:52:28.051+0000 | INFO  | FelixStartLevel  | AgentBootstrap                   | 50 - com.instana.agent-bootstrap - 1.2.11 | Dynamic agent running latest version and installed from package dynamic
+2020-09-24T15:52:28.065+0000 | INFO  | FelixStartLevel  | UpdateManagerImpl                | 50 - com.instana.agent-bootstrap - 1.2.11 | Automatic updates scheduled every DAY at 04:30
+2020-09-24T15:52:28.176+0000 | INFO  | agent-bootstrap  | AgentBootstrap                   | 50 - com.instana.agent-bootstrap - 1.2.11 | Installing agent
+2020-09-24T15:52:35.302+0000 | INFO  | tures-3-thread-1 | ContainerdUtilImpl               | 56 - com.instana.agent - 1.1.571 | ContainerD detected
+2020-09-24T15:52:35.315+0000 | INFO  | tures-3-thread-1 | DockerUtilImpl                   | 56 - com.instana.agent - 1.1.571 | Docker detected with socket at /var/run/docker.sock
+2020-09-24T15:52:35.447+0000 | INFO  | tures-3-thread-1 | Agent                            | 56 - com.instana.agent - 1.1.571 | Agent Mode: apm
+2020-09-24T15:52:35.468+0000 | INFO  | tures-3-thread-1 | SchedulerImpl                    | 56 - com.instana.agent - 1.1.571 | Started sensor scheduler with 4 threads on 2 CPUs.
+2020-09-24T15:52:35.829+0000 | INFO  | ana-http-service | AgentHttpServiceImpl             | 56 - com.instana.agent - 1.1.571 | Listening on 127.0.0.1:42699
+2020-09-24T15:52:35.830+0000 | INFO  | tures-3-thread-1 | AgentHttpServiceImpl             | 56 - com.instana.agent - 1.1.571 | Started agent http service with 4 threads.
+2020-09-24T15:52:35.834+0000 | INFO  | heduler-thread-2 | AgentHttpServiceImpl             | 56 - com.instana.agent - 1.1.571 | Listening on 172.17.0.1:42699
+2020-09-24T15:52:36.150+0000 | INFO  | tures-3-thread-1 | AgentSensor                      | 56 - com.instana.agent - 1.1.571 | Activated Sensor
+2020-09-24T15:52:36.207+0000 | INFO  | tures-3-thread-1 | Backend                          | 56 - com.instana.agent - 1.1.571 | Not verifying certificate fingerprint of connection
+2020-09-24T15:52:36.549+0000 | INFO  | tures-3-thread-1 | AgentImpl                        | 56 - com.instana.agent - 1.1.571 | Agent configured with repositories https://artifact-public.instana.io/artifactory/features-public@id=features@snapshots@snapshotsUpdate=always,https://artifact-public.instana.io/artifactory/shared@id=shared@snapshots@snapshotsUpdate=always
+2020-09-24T15:52:36.559+0000 | INFO  | tures-3-thread-1 | AgentImpl                        | 56 - com.instana.agent - 1.1.571 | Maven server configured: id: features, username: _, password: IYUKKimCQ-6qVTawqCHPEw
+2020-09-24T15:52:36.560+0000 | INFO  | tures-3-thread-1 | AgentImpl                        | 56 - com.instana.agent - 1.1.571 | Maven server configured: id: shared, username: _, password: IYUKKimCQ-6qVTawqCHPEw
+2020-09-24T15:52:36.561+0000 | INFO  | tures-3-thread-1 | AgentImpl                        | 56 - com.instana.agent - 1.1.571 | Started agent scheduler.
+2020-09-24T15:52:36.579+0000 | INFO  | agent-starter    | AgentBootstrap                   | 50 - com.instana.agent-bootstrap - 1.2.11 | Installing discoveries
+2020-09-24T15:52:36.655+0000 | INFO  | agent-bootstrap  | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-init/1.0.1
+2020-09-24T15:52:36.656+0000 | INFO  | agent-bootstrap  | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-jctools2/2.1.1
+2020-09-24T15:52:36.657+0000 | INFO  | agent-bootstrap  | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-api/1.2.100
+2020-09-24T15:52:36.657+0000 | INFO  | agent-bootstrap  | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-unix-socket-util/1.2.3.0
+2020-09-24T15:52:36.657+0000 | INFO  | agent-bootstrap  | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-agent-optional-api/1.0.0
+2020-09-24T15:52:36.658+0000 | INFO  | agent-bootstrap  | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-agent/1.1.571
+2020-09-24T15:52:36.963+0000 | INFO  | stana.io:443-2-1 | Backend                          | 56 - com.instana.agent - 1.1.571 | Connected using HTTP/2 to ingress-red-saas.instana.io:443 with id GCE-2980928423389122649 and key IYUKKimCQ-6qVTawqCHPEw
+2020-09-24T15:52:39.337+0000 | INFO  | tures-3-thread-1 | PyPackageInstaller               | 142 - com.instana.discovery-python - 1.7.15 | Python AutoTrace: could not find a system pip command to use. Will not attempt to remotely instrument Python processes.  You can either install the Python pip utility to enable this or use an alternative method as documented in the Python installation documentation: https://docs.instana.io/ecosystem/python/#installation
+2020-09-24T15:52:40.004+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-activemq-artemis-discovery/1.0.3
+2020-09-24T15:52:40.004+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-activemq-discovery/1.1.10
+2020-09-24T15:52:40.005+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-azure-discovery/1.2.18
+2020-09-24T15:52:40.005+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-aws-discovery/1.0.88
+2020-09-24T15:52:40.005+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-cassandra-discovery/1.1.34
+2020-09-24T15:52:40.005+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-beeinstana-discovery/1.0.4
+2020-09-24T15:52:40.006+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-biztalk-discovery/1.0.4
+2020-09-24T15:52:40.006+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-ceph-discovery/1.1.1
+2020-09-24T15:52:40.006+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-cpp-discovery/1.1.0
+2020-09-24T15:52:40.006+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-cockroachdb-discovery/1.0.6
+2020-09-24T15:52:40.006+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-consul-discovery/1.0.16
+2020-09-24T15:52:40.007+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-containerd-discovery/1.0.19
+2020-09-24T15:52:40.007+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-clickhouse-discovery/1.0.16
+2020-09-24T15:52:40.007+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-cloudfoundry-discovery/1.0.4
+2020-09-24T15:52:40.007+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-clr-discovery/1.1.33
+2020-09-24T15:52:40.008+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-couchbase-discovery/1.0.3
+2020-09-24T15:52:40.008+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-crystal-discovery/1.1.1
+2020-09-24T15:52:40.008+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-crio-discovery/1.0.6
+2020-09-24T15:52:40.009+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-db2-discovery/1.0.7
+2020-09-24T15:52:40.009+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-docker-discovery/1.1.56
+2020-09-24T15:52:40.009+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-dropwizard-discovery/1.1.25
+2020-09-24T15:52:40.009+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-ebpf-discovery/1.0.16
+2020-09-24T15:52:40.010+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-ec2-discovery/1.1.9
+2020-09-24T15:52:40.010+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-elasticsearch-discovery/1.1.55
+2020-09-24T15:52:40.010+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-etcd-discovery/1.0.27
+2020-09-24T15:52:40.011+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-f5-discovery/1.0.1
+2020-09-24T15:52:40.011+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-finagle-discovery/1.1.0
+2020-09-24T15:52:40.011+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-garden-discovery/1.0.5
+2020-09-24T15:52:40.012+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-gce-discovery/1.1.16
+2020-09-24T15:52:40.012+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-generic-hardware-discovery/1.1.6
+2020-09-24T15:52:40.012+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-glassfish-discovery/1.1.9
+2020-09-24T15:52:40.013+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-golang-discovery/1.3.0
+2020-09-24T15:52:40.013+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-hadoop-yarn-discovery/1.1.3
+2020-09-24T15:52:40.013+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-hadoop-yarn-node-discovery/1.1.0
+2020-09-24T15:52:40.014+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-haproxy-discovery/1.1.28
+2020-09-24T15:52:40.014+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-haskell-discovery/1.0.1
+2020-09-24T15:52:40.014+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-hazelcast-discovery/1.2.2
+2020-09-24T15:52:40.014+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-hbase-discovery/1.1.0
+2020-09-24T15:52:40.015+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-host-discovery/1.1.129
+2020-09-24T15:52:40.015+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-httpd-discovery/1.1.101
+2020-09-24T15:52:40.015+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-ibmmq-discovery/1.0.1
+2020-09-24T15:52:40.016+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-instana-backend-discovery/1.1.1
+2020-09-24T15:52:40.016+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-java-discovery/1.2.96
+2020-09-24T15:52:40.016+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-jboss-as-discovery/1.1.43
+2020-09-24T15:52:40.017+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-jboss-as4-discovery/1.0.6
+2020-09-24T15:52:40.017+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-jboss-datagrid-discovery/1.1.10
+2020-09-24T15:52:40.017+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-jenkins-discovery/1.0.12
+2020-09-24T15:52:40.018+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-jetty-discovery/1.1.12
+2020-09-24T15:52:40.018+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-jira-discovery/1.1.11
+2020-09-24T15:52:40.018+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-kafka-connect-discovery/1.0.0
+2020-09-24T15:52:40.019+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-kafka-discovery/1.1.35
+2020-09-24T15:52:40.019+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-kubernetes-discovery/1.2.119
+2020-09-24T15:52:40.019+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-liferay-discovery/1.0.0
+2020-09-24T15:52:40.020+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-lxc-discovery/1.0.1
+2020-09-24T15:52:40.020+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-mariadb-discovery/1.1.22
+2020-09-24T15:52:40.020+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-memcached-discovery/1.0.17
+2020-09-24T15:52:40.021+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-mongodb-discovery/1.1.44
+2020-09-24T15:52:40.021+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-mysql-discovery/1.1.62
+2020-09-24T15:52:40.021+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-msiis-discovery/1.1.8
+2020-09-24T15:52:40.022+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-mule-discovery/1.0.3
+2020-09-24T15:52:40.022+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-mssql-discovery/1.1.29
+2020-09-24T15:52:40.022+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-neo4j-discovery/1.0.0
+2020-09-24T15:52:40.023+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-netcore-discovery/1.0.23
+2020-09-24T15:52:40.023+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-nginx-discovery/1.1.75
+2020-09-24T15:52:40.023+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-nodejs-discovery/1.2.15
+2020-09-24T15:52:40.024+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-nomad-discovery/1.0.6
+2020-09-24T15:52:40.024+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-opc-discovery/1.1.1
+2020-09-24T15:52:40.024+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-openstack-nova-discovery/1.1.6
+2020-09-24T15:52:40.025+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-openldap-discovery/1.0.9
+2020-09-24T15:52:40.025+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-oracledb-discovery/1.1.18
+2020-09-24T15:52:40.025+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-perfcounters-discovery/1.0.0
+2020-09-24T15:52:40.026+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-packet-discovery/1.1.1
+2020-09-24T15:52:40.026+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-php-cgi-discovery/1.0.0
+2020-09-24T15:52:40.026+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-php-fpm-discovery/1.1.62
+2020-09-24T15:52:40.027+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-ping-discovery/1.0.6
+2020-09-24T15:52:40.027+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-ping-directory-discovery/1.0.3
+2020-09-24T15:52:40.028+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-postgresql-discovery/1.0.39
+2020-09-24T15:52:40.028+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-process-discovery/1.1.42
+2020-09-24T15:52:40.028+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-prometheus-discovery/1.0.13
+2020-09-24T15:52:40.029+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-python-discovery/1.7.15
+2020-09-24T15:52:40.029+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-redis-discovery/1.1.32
+2020-09-24T15:52:40.029+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-redis-enterprise-discovery/1.0.0
+2020-09-24T15:52:40.030+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-rabbitmq-discovery/1.1.41
+2020-09-24T15:52:40.030+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-ruby-discovery/1.4.2
+2020-09-24T15:52:40.030+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-sap-hana-discovery/1.1.3
+2020-09-24T15:52:40.031+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-solr-discovery/1.0.14
+2020-09-24T15:52:40.031+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-statsd-discovery/1.1.7
+2020-09-24T15:52:40.031+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-spark-application-discovery/1.1.5
+2020-09-24T15:52:40.032+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-spark-standalone-discovery/1.1.1
+2020-09-24T15:52:40.032+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-springboot-discovery/1.1.41
+2020-09-24T15:52:40.032+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-sybase-discovery/1.0.0
+2020-09-24T15:52:40.032+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-tanzu-foundation-member-discovery/1.0.0
+2020-09-24T15:52:40.033+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-tomcat-discovery/1.1.29
+2020-09-24T15:52:40.033+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-tibcoems-discovery/1.0.1
+2020-09-24T15:52:40.033+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-varnish-discovery/1.0.22
+2020-09-24T15:52:40.034+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-vault-discovery/1.0.5
+2020-09-24T15:52:40.034+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-vsphere-discovery/1.0.18
+2020-09-24T15:52:40.034+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-websphere-discovery/1.1.13
+2020-09-24T15:52:40.035+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-websphere-liberty-discovery/1.1.0
+2020-09-24T15:52:40.035+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-zookeeper-discovery/1.0.4
+2020-09-24T15:52:40.035+0000 | INFO  | agent-starter    | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-weblogic-discovery/1.1.18
+2020-09-24T15:52:40.036+0000 | INFO  | agent-starter    | AgentBootstrap                   | 50 - com.instana.agent-bootstrap - 1.2.11 | Starting agent now
+2020-09-24T15:52:40.036+0000 | INFO  | agent-starter    | AgentImpl                        | 56 - com.instana.agent - 1.1.571 | Starting Instana agent.
+2020-09-24T15:52:40.039+0000 | INFO  | agent-starter    | AgentImpl                        | 56 - com.instana.agent - 1.1.571 | Instana agent started.
+2020-09-24T15:52:40.972+0000 | INFO  | heduler-thread-1 | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-clr-trace-sensor
+2020-09-24T15:52:40.995+0000 | INFO  | 7d-02889dbd8a67) | ClrTrace                         | 165 - com.instana.sensor-clr-trace - 1.1.7 | Activated Sensor
+2020-09-24T15:52:40.996+0000 | INFO  | 7d-02889dbd8a67) | ClrTrace                         | 165 - com.instana.sensor-clr-trace - 1.1.7 | CLR-Tracing has been enabled
+2020-09-24T15:52:43.013+0000 | INFO  | heduler-thread-1 | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-netcore-trace-sensor
+2020-09-24T15:52:43.060+0000 | INFO  | b4-7a046d5fe772) | Daemon                           | 166 - com.instana.sensor-netcore-trace - 1.0.5 | Started .NET Core Acceptor daemon with 2 dispatchers
+2020-09-24T15:52:43.061+0000 | INFO  | b4-7a046d5fe772) | NetcoreTrace                     | 166 - com.instana.sensor-netcore-trace - 1.0.5 | .Net Core Tracing daemon activated
+2020-09-24T15:52:44.812+0000 | INFO  | heduler-thread-1 | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-gce-sensor
+2020-09-24T15:52:45.859+0000 | INFO  | heduler-thread-1 | Ebpf                             | 84 - com.instana.discovery-ebpf - 1.0.16 | Successfully started eBPF sensor.
+2020-09-24T15:52:47.581+0000 | INFO  | heduler-thread-1 | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-gce-services-discovery
+2020-09-24T15:52:49.903+0000 | INFO  | heduler-thread-1 | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-host-sensor
+2020-09-24T15:52:49.926+0000 | INFO  | f7-65a3f0f3b22c) | Host                             | 169 - com.instana.sensor-host - 1.1.129 | Activated Sensor
+2020-09-24T15:53:10.845+0000 | INFO  | heduler-thread-1 | FeaturesManagerImpl              | 50 - com.instana.agent-bootstrap - 1.2.11 | Installed instana-ebpf-sensor
+2020-09-24T15:53:25.195+0000 | INFO  | stana.io:443-2-1 | AgentSensor                      | 56 - com.instana.agent - 1.1.571 | Forwarding log to backend for max 10 minutes.
+2020-09-24T16:03:25.229+0000 | INFO  | heduler-thread-4 | AgentSensor                      | 56 - com.instana.agent - 1.1.571 | Forwarding log to backend stopped.
+2020-09-24T18:21:16.196+0000 | INFO  | stana.io:443-2-1 | AgentSensor                      | 56 - com.instana.agent - 1.1.571 | Forwarding log to backend for max 10 minutes.
+2020-09-24T18:21:22.196+0000 | INFO  | stana.io:443-2-1 | GitOpsBackendRequestHandler      | 56 - com.instana.agent - 1.1.571 | Received git update request with configuration for remoteName: "configuration" remoteBranch: "master" remoteUri: "https://github.com/justynroberts/gitops.git"
+2020-09-24T18:21:23.225+0000 | INFO  | heduler-thread-2 | GitOpsServiceImpl                | 56 - com.instana.agent - 1.1.571 | Reboot agent after GitOps configuration update
+2020-09-24T18:21:24.283+0000 | INFO  | FelixStartLevel  | ClrTrace                         | 165 - com.instana.sensor-clr-trace - 1.1.7 | Deactivated Sensor
+2020-09-24T18:21:24.312+0000 | INFO  | FelixStartLevel  | Host                             | 169 - com.instana.sensor-host - 1.1.129 | Deactivated Sensor
+2020-09-24T18:21:25.259+0000 | INFO  | FelixStartLevel  | AgentSensor                      | 56 - com.instana.agent - 1.1.571 | Deactivated Sensor
+2020-09-24T18:21:25.262+0000 | INFO  | FelixStartLevel  | AgentSensor                      | 56 - com.instana.agent - 1.1.571 | Forwarding log to backend stopped.
+Agent Configuration
+Copy to clipboard
+
+# Manual a-priori configuration. Configuration will be only used when the sensor
+# is actually installed by the agent.
+# The commented out example values represent example configuration and are not
+# necessarily defaults. Defaults are usually 'absent' or mentioned separately.
+# Changes are hot reloaded unless otherwise mentioned.
+
+# It is possible to create files called 'configuration-abc.yaml' which are
+# merged with this file in file system order. So 'configuration-cde.yaml' comes
+# after 'configuration-abc.yaml'. Only nested structures are merged, values are
+# overwritten by subsequent configurations.
+
+# Secrets
+# To filter sensitive data from collection by the agent, all sensors respect
+# the following secrets configuration. If a key collected by a sensor matches
+# an entry from the list, the value is redacted.
+#com.instana.secrets:
+#  matcher: 'contains-ignore-case' # 'contains-ignore-case', 'contains', 'regex'
+#  list:
+#    - 'key'
+#    - 'password'
+#    - 'secret'
+
+# Ignore processes
+# To ignore any monitoring of certain processes, uncomment the
+# com.instana.ignore section and list all process names of processes that should
+# not be monitored.
+# Sometimes scripts or other jobs are started through the same command, but
+# only the execution of a single command should be ignored. In this case use
+# arguments to specify any argument that should cause a process to be ignored.
+#com.instana.ignore:
+#  processes:
+#    - 'java'
+#    - 'httpd'
+#  arguments:
+#    - '-batch-file=/tmp/batch.def'
+
+# Host
+# Instana will by default only monitor local filesystems. It is possible to
+# explicitly list the remote filesystems that shall be monitored.
+# The name for the config setting is the device name, that is the first column
+# in mtab / df
+#com.instana.plugin.host:
+#  tags:
+#    - 'production'
+#    - 'app1'
+#  filesystems:
+#    - 'server:/usr/local/pub'
+#  Valid values: true, false
+#  collectInstalledSoftware: false
+
+# Hardware & Zone
+#com.instana.plugin.generic.hardware:
+#  enabled: true # disabled by default
+#  availability-zone: 'Datacenter A / Rack 42'
+
+# AWS Services
+# Monitoring of all AWS Service are enabled by default except for AWS XRay.
+# Default values for cloudwatch_period are in seconds and equal to AWS defaults
+# Values for include_tags/exclude_tags are comma separated list of tags in key:value format (example: env:dev,env:test)
+
+#com.instana.plugin.aws:
+#  tagged-services-poll-rate: 300
+#  include_tags:
+#  exclude_tags:
+
+#com.instana.plugin.aws.beanstalk:
+#  enabled: false
+#  cloudwatch_period: 60
+#  include_tags:
+#  exclude_tags:
+
+#com.instana.plugin.aws.dynamodb:
+#  enabled: false
+#  cloudwatch_period: 300
+#  include_tags:
+#  exclude_tags:
+
+#com.instana.plugin.aws.ebs:
+#  enabled: false
+#  cloudwatch_period: 300
+#  include_tags:
+#  exclude_tags:
+
+#com.instana.plugin.aws.ec:
+#  enabled: false
+#  cloudwatch_period: 60
+#  include_tags:
+#  exclude_tags:
+
+#com.instana.plugin.aws.ec2:
+#  enabled: false
+#  tags-poll-rate: 30
+
+#com.instana.plugin.aws.elb:
+#  enabled: false
+#  cloudwatch_period: 60
+#  include_tags:
+#  exclude_tags:
+
+#com.instana.plugin.aws.emr:
+#  enabled: false
+#  cloudwatch_period: 300
+#  include_tags:
+#  exclude_tags:
+
+#com.instana.plugin.aws.es:
+#  enabled: false
+#  cloudwatch_period: 300
+#  include_tags:
+#  exclude_tags:
+
+#com.instana.plugin.aws.kinesis:
+#  enabled: false
+#  cloudwatch_period: 300
+#  include_tags:
+#  exclude_tags:
+
+#com.instana.plugin.aws.lambda:
+#  enabled: false
+#  cloudwatch_period: 300
+#  include_tags:
+#  exclude_tags:
+
+#com.instana.plugin.aws.rds:
+#  enabled: false
+#  cloudwatch_period: 60
+#  include_tags:
+#  exclude_tags:
+
+#com.instana.plugin.aws.s3:
+#  enabled: false
+#  cloudwatch_period: 60
+#  include_tags:
+#  exclude_tags:
+
+#com.instana.plugin.aws.sqs:
+#  enabled: false
+#  cloudwatch_period: 300
+#  include_tags:
+#  exclude_tags:
+
+#com.instana.plugin.aws.xray:
+#  enabled: false
+
+
+# ActiveMQ
+#com.instana.plugin.activemq:
+#  monitorQueues: # max 100 queues
+#    - 'DLQ.test-1'
+#    - 'test-queue-1'
+#    - 'ActiveMQ.DLQ'
+#  monitorTopics: #max 100 topics
+#    - 'ActiveMQ.Advisory.Topic'
+#    - 'test-topic-1'
+
+# ActiveMQ Artemis
+#com.instana.plugin.activemqartemis:
+#  monitorQueues: # max 100 queues
+#    - 'test-1'
+#    - 'test-queue-1'
+#    - 'DLQ'
+
+# Apache Httpd
+#com.instana.plugin.httpd:
+#  user: ''
+#  password: ''
+
+# Couchbase
+#com.instana.plugin.couchbase:
+#  user: ''
+#  password: ''
+
+# Custom processes
+# To enable low level metric and availability monitoring for not automatically
+# discovered processes, uncomment the com.instana.plugin.process section and
+# list all process names of processes that should be monitored.
+# Sometimes scripts or other jobs are started through the same command, but
+# only the execution of a single command should be monitored. In this case use
+# arguments to specify any argument that should cause a process to be monitored.
+#com.instana.plugin.process:
+#  processes:
+#    - 'sshd'
+#    - 'slapd'
+#  arguments:
+#    - '/opt/script.sh'
+#  services:
+#    - 'nginx'
+#    - 'windows-service'
+
+# JBoss AS:
+#com.instana.plugin.jbossas:
+#  monitor-ejb-deployments: true
+
+# Kafka
+#com.instana.plugin.kafka:
+#  topicsRegex: '.*'
+
+# Memcached
+#com.instana.plugin.memcached:
+#  user: ''
+#  password: ''
+
+# MongoDB
+#com.instana.plugin.mongodb:
+#  user: ''
+#  source: '' # database where the user is defined
+#  password: ''
+#  sslTrustStore: '/path/to/truststore.jks'
+#  sslTrustStorePassword: 'mongoTsPassword'
+#  sslKeyStore: '/path/to/sslKeyStoreFile.jks'
+#  sslKeyStorePassword: 'mongoKsPassword'
+
+# Mssql
+#com.instana.plugin.mssql:
+#  user: ''
+#  password: ''
+
+# Mysql
+#com.instana.plugin.mysql:
+#  user: ''
+#  password: ''
+#  schema_excludes: ['INFORMATION_SCHEMA', 'PERFORMANCE_SCHEMA']
+
+# MariaDB
+#com.instana.plugin.mariadb:
+#  user: ''
+#  password: ''
+
+# OracleDB
+#com.instana.plugin.oracledb:
+#  # Local monitoring configuration
+#  password: ''
+#  user: '' #default is 'sys as sysdba'
+#  port: '' #default '1521'
+#  host: '' #default is 'localhost'
+#  poll_rate: '' #default is 1 (seconds)
+#  # Remote monitoring configuration
+#  remote:
+#    - host: ''
+#      port: ''
+#      databaseSID: ''
+#      user: '' #default is 'sys as sysdba'
+#      password: ''
+#      availabilityZone: '' #default is 'Remote Monitoring'
+#      poll_rate: '' #default is 1 (seconds)
+
+# PostgreSQL
+#com.instana.plugin.postgresql:
+#  user: ''
+#  password: ''
+#  database: '' # by default PostgreSQL will use 'user' as database to connect to.
+
+# Redis
+#com.instana.plugin.redis:
+#  password: ''
+#  Instana requires the CONFIG command. If it was renamed using 'rename-command'
+#  this setting can be used to tell Instana the new name
+#  config-command: 'CONFIG'
+#  Monitor certain values in Redis
+#  monitor:
+#    - db: 0 # db number - defaults to 0 if absent
+#      key: 'logstash' # key of value, given as string
+#      type: 'list-length' # metric type. Currently only supports 'list-length'
+
+# RabbitMq
+#com.instana.plugin.rabbitmq:
+#  user: 'guest'
+#  password: 'guest'
+#  monitorQueues:
+#    - queue: queueName #name of the queue
+#      vhost: / #name of the vhost, default is '/'
+
+# SpringBoot
+#com.instana.plugin.springboot:
+#  metrics-interval: 1
+#  health-interval: 30
+
+# OpenLDAP
+#com.instana.plugin.openldap:
+#  user: '' # query like 'cn=Manager,dc=example,dc=com'
+#  password: '' # password for 'simple' authentication
+#  port: 10389 # default is 389
+#  schemaPath: '' # path to schema files
+
+# StatsD
+#com.instana.plugin.statsd:
+#  enabled: true # disabled by default
+#  ports:
+#    udp: 8125
+#    mgmt: 8126
+#  flush-interval: 10 # 10 seconds by default
+
+# Sap HANA
+#com.instana.plugin.saphana:
+#  singleContainer:
+#    user: '' #default is 'SYSTEM'
+#    password: ''
+#  multiContainer:
+#    DATABASE_NAME_1: #example 'HXE'
+#      user: '' #default is 'SYSTEM'
+#      password: ''
+#    DATABASE_NAME_2:
+#      user: '' #default is 'SYSTEM'
+#      password: ''
+
+# Sybase SQL Anywhere
+#com.instana.plugin.sybase:
+#  servers:
+#    SERVER_NAME_1: #example 'server1'
+#      port: '' #default '2638'
+#      database: '' #default is 'demo'
+#      user: '' #default is 'DBA'
+#      password: '' #default is 'sql'
+
+# TibcoEMS
+#com.instana.plugin.tibcoems:
+#  port: '' # default port is: '7222'
+#  user: '' # username for the server. Default is: 'admin'
+#  password: '' # password for the server. Default is: ''
+#  topicsRegex: '' # provide regex for topics you want to monitor
+#  queuesRegex: '' # provide regex for queues you want to monitor
+  
+# HashiCorp Consul
+#com.instana.plugin.consul:
+#  enabled: true   # enabled by default
+#  client: ''      # client endpoint hostname, by default sensor will parse '-client' parameter or use 'localhost'
+#  httpPort: ''    # client endpoint http port, by default sensor will parse '-http-port' parameter or use '8500'
+#  token: ''       # 'token' to access consul endpoint when 'acl_default_policy' is set to 'deny'
+
+# Jenkins
+#com.instana.plugin.jenkins:
+#  user: '' #default is 'user'
+#  password: '' #default is 'user'
+
+# Java & Custom JMX
+#com.instana.plugin.java:
+#  jmx:
+#    # JMX is NOT hot-reloaded and needs to be set before a JVM is discovered.
+#    # Supported attribute types are Number and Boolean
+#    # delta calculation is only supported for Number
+#    - object_name: 'java.lang:type=Compilation'
+#      metrics:
+#        - attributes: 'TotalCompilationTime'
+#          type: 'delta' # delta will report the change to the previous second
+#    - object_name: 'java.lang:type=ClassLoading'
+#      metrics:
+#        - attributes: 'LoadedClassCount'
+#          type: 'absolute' # absolute will report the value as-is
+#  dropwizardMetricCollection:
+#    enabled: true
+#    limit: 200
+#  micrometerMetricCollection:
+#    enabled: true
+#    limit: 200
+
+# General Tracing Settings
+#com.instana.tracing:
+#  extra-http-headers:
+#    # List of extra headers that should be captured by Instana.
+#    # Will be matched using case-insensitive match.
+#    - 'x-loadtest-id'
+
+# Java Tracing
+#com.instana.plugin.javatrace:
+#  instrumentation:
+#    # Lightweight Bytecode Instrumentation, enabled by default
+#    # Disabling currently requires an agent restart
+#    enabled: true
+#    # OpenTracing instrumentation, disabled by default
+#    # Enabling requires an agent restart
+#    opentracing: false
+#    # To enable using the SDK, provide a list of packages that should be
+#    # scanned for SDK annotations. All subpackages are scanned, as it is a
+#    # starts-with prefix matching.
+#    # Scanning a large amount of classes slows down agent attach and requires
+#    # more CPU for parsing, therefore it is recommended to limit to packages
+#    # actually using SDK annotations.
+#    # By default no packages are scanned for SDK annotations.
+#    sdk:
+#      packages:
+#        - 'com.instana.backend'
+#        - 'com.instana.frontend'
+
+# PHP Tracing
+#com.instana.plugin.php:
+#  # Lightweight PHP Tracing. Requires the Instana Tracing extension. Enabled by default.
+#  tracing:
+#    # Enabling tracing will automatically download the Instana Tracing
+#    # extension and enable it in your php.ini. If you are using preforked
+#    # PHP workers, like PHP-FPM, you will need to restart them. Disabling
+#    # tracing again will not remove the extension. It will only disable the
+#    # tracing sensor.
+#    enabled: true
+#    # Whether to install the PHP Tracing extension. Default is true. Disabling
+#    # the installation will still create the TraceAcceptor daemon though.
+#    installExtension: true
+#    # The filename to use when querying Apache or PHP-CGI installations for
+#    # environment data such as version, architecture, etc. By default, this
+#    # is "instana." + Math.random(). + ".php". Uncommenting the setting
+#    # below will force a static filename instead.
+#    phpInfoFilename: instana.php
+#    # Pins the PHP Tracing extension to download and install to a specific
+#    # version. This can be used to rollback to previous versions of the
+#    # extension or to test beta versions (when asked to do so). Expects
+#    # the version to be given as major.minory.patch, e.g. 0.3.7
+#    pinExtensionVersion: x.y.z
+#    # The absolute path to the script to trigger whenever the sensor installed
+#    # a different version of the PHP tracing extension than is currently
+#    # installed. Works for upgrades and downgrades. Default is empty.
+#    notificationScript: /path/to/restart_php.sh
+#    # The number of executor threads to use for processing traces. This setting
+#    # can be used to fine tune the PHP sensor for specific load environments.
+#    # Defaults to the number of available logical processors or 8 (whichever is less).
+#    # In general, you don't need to touch this setting unless advised to do so.
+#    executorThreads: n
+#    # The maximum number of traces the sensor is allowed to keep in the backlog
+#    # for processing. Can be used in conjunction with executorThreads to fine tune
+#    # the sensor for specific load environments. In general, you don't need to touch
+#    # this setting unless advised to do so. Defaults to 1000.
+#    executorQueueLimit: 1000
+#    # Port on which the sensor is listening for traces. Changing this setting will
+#    # not automatically update any .ini files created for the PHP Tracing extension.
+#    # In general, you don't need to touch this setting unless advised to do so.
+#    # Defaults to port 16816.
+#    port: 16816
+#    # Whether to remove values in SQL queries to prevent sensitive data from
+#    # reaching our backend. This can help to improve agent performance in certain
+#    # setups. In general, you don't need to touch this setting unless advised to do so.
+#    sanitizeSql: true
+
+# .NET Full Framework tracing
+#com.instana.plugin.clr:
+#  # Tracing for .NET Full Framework CLR. Currently disabled by default
+#  tracing:
+#    # Enabling tracing will instruct the agent to register the IL-rewriting components for .NET
+#    # alongside with the instrumentation-libraries.
+#    # It will also set the environment-variables for any IIS hosted .NET applications.
+#    # Non-IIS hosted applications which you want to trace need these env-vars to be set
+#    # manually before starting the actual process
+#    # (see the docs here: https://docs.instana.io/ecosystem/dot-net/#enabling-tracing-for-non-iis-hosted-applications)
+#    enabled: true
+#    # The absolute path to a batch-file that should be executed when the tracing-components for
+#    # NET Full Framework (Windows) have been updated. You can use this script to automate tasks
+#    # that should be executed when new tracing-components get installed. This usually will be
+#    # process-restarts or issuing an iisreset command, so that the processes can pickup the new components.
+#    # The commands issued in the script should be executed asynchronously (start /b <cmd>) in order to not
+#    # slow down the startup-time of InstanaPCP. In case of long-running synchronous tasks (like iisreset) you might
+#    # see warnings in the log concerning the unavailability of InstanaPCP for the duration of the execution.
+#    update_script: <absolute_path_to_batchfile>
+#  # Memory-limits for InstanaPCP.
+#  # You can specify these limits to account for high expected load and/or a lot of
+#  # infrastructure-components being monitored. Values are in mega-bytes.
+#  pcp_warn_limit: 150
+#  pcp_stop_limit: 250
+
+#com.instana.plugin.python:
+#  # Python autodiscovery will automatically find and instrument Python processes.
+#  # This is supported on Linux 64bit Python processes.
+#  autodiscovery:
+#    # Valid values: true, false
+#    enabled: true
+#
+#    # the autodiscovery white list is used to identify python processes.  It is applied
+#    # _before_ the blacklist to get a list of potential candidate processes.  The white
+#    # list is used to create a list of processes that contain the following strings in
+#    # their command line.
+#    whitelist:
+#      - 'gunicorn'
+#      - 'uwsgi'
+#
+#    # the autodiscovery black list is used to identify processes to ignore.  It is applied
+#    # _after_ the whitelist.  Any processes that have the following strings in their
+#    # command line will be ignored.
+#    blacklist:
+#      - 'pipenv'         # pipenv processes
+#      - 'runserver'      # development webservers
+#      - 'setup.py'
+#      - 'ipython'
+
+# Synthetic Ping
+# com.instana.plugin.ping:
+#  endpoints:
+#    NAME: # example 'DC_EAST'
+#      type: '' # supported types : 'icmp', 'http'
+#      target: '' # host address
+
+# ETCD
+#com.instana.plugin.etcd:
+#  caCertificate: '' # path to CA certificate (eg. /etc/etcd/ca.crt)
+#  clientCertificate: '' # path to client certificate (eg. /etc/etcd/client.crt)
+#  clientKey: '' # path to client key (eg. /etc/etcd/client.key)
+
+# Google Cloud SQL
+#com.instana.plugin.gcp.sql:
+#  enabled: true
+#  poll_rate: 60 # How often Google's monitoring API will be polled
+#  credentials_path: '/opt/instana/credentials/cred-gcp.json' # Path to Service Account credentials
+
+# eBPF tracing
+# # Only available on Linux hosts. Requires a 4.7 or later kernel. Red Hat
+# # however has backported BPF to RHEL 7.6 (kernel version 3.10.0-957).
+#com.instana.plugin.ebpf:
+#   enabled: false
+
+# Nomad
+#com.instana.plugin.nomad:
+#  caCertificate: '' # path to CA certificate (eg. /etc/nomad/ca.crt)
+#  clientCertificate: '' # path to client certificate (eg. /etc/nomad/client.crt)
+#  clientKey: '' # path to client key (eg. /etc/nomad/client.key)
+
+# Java Profiling
+#com.instana.plugin.profiling.java:
+#  enabled: false
+
+# VMware vSphere
+#com.instana.plugin.vsphere:
+#  host: https://<INSERT_HOST_HERE>/sdk
+#  username: <INSERT_USERNAME_HERE>
+#  password: <INSERT_PASSWORD_HERE>
+#  enabled: true
+#  poll_rate: 20 # metrics poll rate in seconds
