@@ -51,9 +51,9 @@
 #  collectInstalledSoftware: false
 
 # Hardware & Zone
-#com.instana.plugin.generic.hardware:
-#  enabled: true # disabled by default
-#  availability-zone: 'Datacenter A / Rack 42'
+com.instana.plugin.generic.hardware:
+  enabled: true # disabled by default
+  availability-zone: 'Under Gitops Management'
 
 # AWS Services
 # Monitoring of all AWS Service are enabled by default except for AWS XRay.
