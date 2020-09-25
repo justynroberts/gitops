@@ -1,5 +1,0 @@
-com.instana.plugin.ping:
-  endpoints:
-   'www.microsoft.com':
-      type: 'http'
-      target: 'http://www.microsoft.com'      
