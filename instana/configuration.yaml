@@ -521,3 +521,12 @@ com.instana.plugin.profiling.java:
 #  password: <INSERT_PASSWORD_HERE>
 #  enabled: true
 #  poll_rate: 20 # metrics poll rate in seconds
+
+com.instana.plugin.gcp.run:
+  enabled: true
+  poll_rate: 60  # How often Google's metrics API will be polled
+  credentials_path: '/opt/instana/gcp.json'  # Path to Service Account credentials
+  include_tags:
+    ...
+  exclude_tags:
+    ...
