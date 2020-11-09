@@ -53,7 +53,7 @@
 # Hardware & Zone
 com.instana.plugin.generic.hardware:
   enabled: true # disabled by default
-  availability-zone: 'Under Gitops Management'
+  availability-zone: 'JRDemo'
 
 # AWS Services
 # Monitoring of all AWS Service are enabled by default except for AWS XRay.
@@ -511,8 +511,8 @@ com.instana.plugin.generic.hardware:
 #  clientKey: '' # path to client key (eg. /etc/nomad/client.key)
 
 # Java Profiling
-#com.instana.plugin.profiling.java:
-#  enabled: false
+com.instana.plugin.profiling.java:
+  enabled: true
 
 # VMware vSphere
 #com.instana.plugin.vsphere:
