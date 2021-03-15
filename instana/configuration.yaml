@@ -53,7 +53,7 @@
 # Hardware & Zone
 com.instana.plugin.generic.hardware:
   enabled: true # disabled by default
-  availability-zone: 'JRDemo-IBM'
+  availability-zone: 'JRDemo'
 
 # AWS Services
 # Monitoring of all AWS Service are enabled by default except for AWS XRay.
